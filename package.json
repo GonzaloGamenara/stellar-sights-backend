@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js",   // Agrega esta línea para iniciar el servidor
+    "start": "node server.js",   // Agrega esta línea para iniciar el servidor
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
