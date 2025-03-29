@@ -9,7 +9,7 @@ app.use(cors());
 
 // Función para obtener los planetas de un sistema planetario específico
 async function fetchPlanets(system) {
-    const planetsUrl = `https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,+disc_year,+pl_bmasse,+pl_eqt,+pl_rade,+sy_dist,+pl_orbper,+pl_dens,+pl_discmethod+from+ps+where+hostname='${system}'+and+default_flag=1&format=json`;
+    const planetsUrl = `https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,+disc_year,+pl_bmasse,+pl_eqt,+pl_rade,+sy_dist,+pl_orbper,+pl_dens,+pl_ratror+from+ps+where+hostname='${system}'+and+default_flag=1&format=json`;
 
     try {
         const response = await axios.get(planetsUrl);
@@ -22,7 +22,6 @@ async function fetchPlanets(system) {
             ps_distance_in_Parsecs: planet.sy_dist,
             orbital_duration_in_days: planet.pl_orbper,
             density: planet.pl_dens,
-            telescop: planet.pl_telescope,
             planetToStarRadiusRatio: planet.pl_ratror,
             moons: planet.pl_mnum
         }));
