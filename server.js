@@ -21,6 +21,10 @@ async function fetchPlanets(system) {
             radius_compared_earth: planet.pl_rade,
             ps_distance_in_Parsecs: planet.sy_dist,
             orbital_duration_in_days: planet.pl_orbper,
+            density: planet.pl_dens,
+            telescop: planet.pl_telescope,
+            planetToStarRadiusRatio: planet.pl_ratror,
+            moons: planet.pl_mnum
         }));
     } catch (error) {
         console.error(`Error fetching planets for system ${system}:`, error.message);
